@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "Attach",
+      "request": "attach",
+      "type": "reactnative",
+      "cwd": "${workspaceFolder}",
+      "port": 8081
+    }
+  ]
+}
