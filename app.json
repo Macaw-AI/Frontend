@@ -3,7 +3,25 @@
     "slug": "frontend",
     "name": "frontend",
     "sdkVersion": "48.0.0",
-    "entryPoint": ".vscode\\exponentIndex.js"
+    "jsEngine": "hermes",
+    "ios": {
+      "jsEngine": "jsc",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6fb4c5fe-91a5-416f-9d60-df573f92e44b"
+      }
+    },
+    "owner": "macawai",
+    "updates": {
+      "url": "https://u.expo.dev/6fb4c5fe-91a5-416f-9d60-df573f92e44b"
+    },
+    "android": {
+      "runtimeVersion": "1.0.0"
+    }
   },
   "name": "frontend"
 }
