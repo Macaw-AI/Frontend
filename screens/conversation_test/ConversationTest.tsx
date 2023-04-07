@@ -6,21 +6,29 @@ import useVoiceRecognition from "../../hooks/useVoiceRecognition";
 import useConversation from "../../hooks/useConversation";
 import { createConversationResponseTemplate } from "../../response_generating/response_utilities";
 import { useLocation } from "react-router-native";
+import EXAMPLE_TEACHER_LIST from "../../utils/TeacherUtils";
+import EXAMPLE_SUBJECT_DICT from "../../utils/SubjectUtils";
 type Props = {};
 
 const ConversationTest = (props: Props) => {
   const location = useLocation();
-  const teacher = location.state.teacher;
-  const subject = location.state.subject;
-  console.log("conv test" + JSON.stringify(teacher,null,2))
-  const {isProcessing, registerUserSpeech, playCurrentAudio,getTeacherResponse,recentHistory} = useConversation({
+  const teacher = EXAMPLE_TEACHER_LIST[2];
+  const subject = EXAMPLE_SUBJECT_DICT.MrWernor[0];
+  //location.state.subject;
+  const {
+    isProcessing,
+    registerUserSpeech,
+    playCurrentAudio,
+    getTeacherResponse,
+    recentHistory,
+  } = useConversation({
     locale: "en-US",
-    teacher, subject
+    teacher,
+    subject,
   });
 
   const handleCancelButton = () => {};
   const handleStartListeningButton = () => {
-    console.log("piesulek");
     registerUserSpeech();
   };
 
@@ -30,24 +38,16 @@ const ConversationTest = (props: Props) => {
     } else {
       return (
         <View>
-          <Text>
-            {recentHistory}
-          </Text>
+          <Text>{recentHistory}</Text>
 
-        <Button
-          title="Start listening..."
-          onPress={handleStartListeningButton}
-          />
           <Button
-          title="play current audio"
-          onPress={playCurrentAudio}
+            title="Start listening..."
+            onPress={handleStartListeningButton}
           />
+          <Button title="play current audio" onPress={playCurrentAudio} />
 
-          <Button 
-          title="send response"
-          onPress={getTeacherResponse}
-          />
-          </View>
+          <Button title="send response" onPress={getTeacherResponse} />
+        </View>
       );
     }
   };

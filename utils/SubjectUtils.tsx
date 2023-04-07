@@ -41,3 +41,34 @@ export async function getSubjectListByLanguageAndTeacherName(
     return Promise.reject();
   }
 }
+
+
+const EXAMPLE_SUBJECT_DICT = {
+  "MrWernor": 
+    [
+        {
+            "name": "History: antiquity",
+            "related": [
+                "technologies of the past",
+                "changes in human history",
+                "good old days",
+                "Rome",
+                "Egypt",
+                "Greece",
+                "Sparta",
+                "Mezopotamia"
+            ],
+            "questions": "Debate about ancient civilizations, their development and culture"
+        },
+        {
+            "name": "hobbies",
+            "related": [
+                "relations",
+                "self-development"
+            ],
+            "questions": "Having a hobbies, how to find them, why it is worth to have hobbies"
+        }
+    ],
+}
+
+export default EXAMPLE_SUBJECT_DICT

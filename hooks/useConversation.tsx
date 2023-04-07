@@ -17,16 +17,19 @@ const useConversation = (props: {
   locale: string;
   teacher: TEACHER;
   subject: SUBJECT;
-}): {isProcessing: boolean, registerUserSpeech: () => void, playCurrentAudio: () => void, getTeacherResponse: () => void, recentHistory: string} => {
-  console.log(JSON.stringify(props.teacher,null,2))
+}): {
+  isProcessing: boolean;
+  registerUserSpeech: () => void;
+  playCurrentAudio: () => void;
+  getTeacherResponse: () => void;
+  recentHistory: string;
+} => {
   const history = useConversationHistory(props.teacher.name, "Baxter");
-  const recentHistory = history.getRecentConversationLines(3)
+  const recentHistory = history.getRecentConversationLines(3);
   const playAudio = usePlay64EncodedAudio();
-  const [
-    getTextFromSpeech
-  ] = useVoiceRecognition(props.locale);
+  const [getTextFromSpeech] = useVoiceRecognition(props.locale);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [currentAudio,setCurrentAudio] = useState<string>("");
+  const [currentAudio, setCurrentAudio] = useState<string>("");
   const responseTemplate = createConversationResponseTemplate(
     props.teacher,
     props.subject,
@@ -38,9 +41,9 @@ const useConversation = (props: {
     setIsProcessing(true);
     getTextFromSpeech(
       (text: SpeechResultsEvent) => {
-        const str: string = (text.value as string[])[0]
+        const str: string = (text.value as string[])[0];
         history.addStudentResponse(str);
-        setIsProcessing(false)
+        setIsProcessing(false);
       },
       () => {
         setIsProcessing(false);
@@ -55,14 +58,15 @@ const useConversation = (props: {
   };
 
   const getTeacherResponse = () => {
-    setIsProcessing(true)
-    const x:CONVERSATION_RESPONSE = addTextToResponseBody(
+    setIsProcessing(true);
+    const x: CONVERSATION_RESPONSE = addTextToResponseBody(
       history.getRecentConversationLines(3),
       responseTemplate
     );
+    console.log(JSON.stringify(x, null, 2));
     getResponseAndBase64AudioFromPrompt(x)
       .then(([response, audio]) => {
-        setCurrentAudio(audio)
+        setCurrentAudio(audio);
         history.addTeacherResponse(response);
         setIsProcessing(false);
       })
@@ -74,7 +78,7 @@ const useConversation = (props: {
     registerUserSpeech,
     playCurrentAudio,
     getTeacherResponse,
-    recentHistory
+    recentHistory,
   };
 };
 

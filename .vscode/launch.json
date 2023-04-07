@@ -1,11 +1,13 @@
 {
   "configurations": [
     {
-      "name": "Attach",
-      "request": "attach",
+      "name": "Debug in Exponent",
+      "request": "launch",
       "type": "reactnative",
       "cwd": "${workspaceFolder}",
-      "port": 8081
+      "platform": "exponent",
+      "expoHostType": "tunnel",
+      "enableDebug": true
     }
   ]
 }
