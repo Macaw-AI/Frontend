@@ -8,7 +8,8 @@
       "jsEngine": "jsc",
       "runtimeVersion": {
         "policy": "sdkVersion"
-      }
+      },
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "extra": {
       "eas": {
@@ -20,9 +21,11 @@
       "url": "https://u.expo.dev/6fb4c5fe-91a5-416f-9d60-df573f92e44b"
     },
     "android": {
-      "runtimeVersion": "1.0.0"
+      "runtimeVersion": "1.0.0",
+      "googleServicesFile": "./google-services.json"
     }
     
   },
-  "name": "frontend"
+  "name": "frontend",
+  "plugins": ["@react-native-google-signin/google-signin"]
 }
