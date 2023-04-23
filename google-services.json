@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "850295598135",
+    "project_id": "talkgpt-8b68a",
+    "storage_bucket": "talkgpt-8b68a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850295598135:android:265e9b73bc5ebc900ee3b2",
+        "android_client_info": {
+          "package_name": "com.vasabipl.frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850295598135-7aq8n1ff1otokfic1gulof299ll0dk2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vasabipl.frontend",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "850295598135-aa6uk5jlkavk729us4nalst4rp8np18q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdB5i1wTsjxpkx-8MwVCjUENfxLmNj5zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850295598135-aa6uk5jlkavk729us4nalst4rp8np18q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
