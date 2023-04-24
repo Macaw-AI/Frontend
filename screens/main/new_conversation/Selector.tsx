@@ -35,13 +35,17 @@ export default function TeacherSelector(props: {
       borderBottomWidth: 1,
     },
     teacherSelectorContent: {
+      textAlign: "center",
       padding: "3%",
       paddingLeft: 0,
     },
     teacherSelectorTitle: {
+      textAlign: "center",
       fontWeight: "bold",
       fontSize: 20,
     },
-    teacherSelectorDescription: {},
+    teacherSelectorDescription: {
+      textAlign: "center",
+    },
     teacherSelectorDescriptionContainer: {},
   });

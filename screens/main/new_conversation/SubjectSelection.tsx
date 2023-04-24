@@ -33,7 +33,7 @@ const SubjectSelection = (props: Props) => {
       return (
         <TeacherSelector
           title={subject.name}
-          description={"some description"}
+          description={subject.related.join("\n")}
           onPress={() => {
             navigate("/conversation", {
               replace: true,

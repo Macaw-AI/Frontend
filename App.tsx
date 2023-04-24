@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<BottomNavbar />}>
             {/* <Route index element={<NewConversation />} /> */}
-            <Route index element={<ConversationTest />} />
+            <Route index element={<NewConversation />} />
             <Route
               path="/previous_conversations"
               element={<PreviousConversations />}
