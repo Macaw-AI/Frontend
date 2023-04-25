@@ -13,7 +13,6 @@ export default function App() {
       <NativeRouter>
         <Routes>
           <Route path="/" element={<BottomNavbar />}>
-            {/* <Route index element={<NewConversation />} /> */}
             <Route index element={<NewConversation />} />
             <Route
               path="/previous_conversations"
@@ -21,9 +20,10 @@ export default function App() {
             />
             <Route path="/subject_selection" element={<SubjectSelection />} />
             <Route path="/user_page" element={<UserPage />} />
+
+            <Route path="/conversation" element={<ConversationTest />} />
           </Route>
 
-          <Route path="conversation" element={<ConversationTest />} />
         </Routes>
       </NativeRouter>
     </>
