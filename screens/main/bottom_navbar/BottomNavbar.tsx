@@ -31,7 +31,7 @@ const BottomNavbar = (props: Props) => {
             color: "white",
           }}
         >
-          Choose your teacher
+          Menu
         </Text>
       </View>
       <View style={styles.content}>
