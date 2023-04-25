@@ -1,18 +1,5 @@
-import { useRef, useState } from "react";
-import CONVERSATION_STARTER_CHAT, { CHAT, CHAT_MESSAGE } from "../utils/Chat";
-import { TEACHER } from "../utils/TeacherUtils";
-
-/* 
-S
-T
-S
-T
-S
-T
-S
-T
-S
-*/
+import { useState } from "react";
+import { CHAT, CHAT_MESSAGE } from "../utils/Chat";
 
 export function useConversationHistory(
   teacherName: string,
@@ -23,6 +10,7 @@ export function useConversationHistory(
   function isTeacherResponseNext(): boolean {
     return chat.length % 2 == 0;
   }
+
   function isStudentResponseNext(): boolean {
     return chat.length % 2 == 1;
   }
@@ -31,7 +19,7 @@ export function useConversationHistory(
     if (!isTeacherResponseNext()) {
       throw Error(
         "function addTeacherResponse: addStudentResponse call was expected" +
-          teacherResponse
+        teacherResponse
       );
     }
 
@@ -46,7 +34,7 @@ export function useConversationHistory(
     if (!isStudentResponseNext()) {
       throw Error(
         "function addStudentResponse: addTeacherResponse call was expected" +
-          studentResponse
+        studentResponse
       );
     }
     const newMessage: CHAT_MESSAGE = {
@@ -55,18 +43,6 @@ export function useConversationHistory(
     };
     setChat((chat) => [...chat, newMessage]);
   }
-
-  /*
-  0T  0T  0T  0T  0T 
-  1S          1S  1S
-
-  2T              2T
-  3S
-
-  4T
-  5S
-
-  */
 
   function getRecentConversationMessages(numberOfPairs: number): string {
     const chat: CHAT = [];

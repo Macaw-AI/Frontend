@@ -1,6 +1,6 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import ConversationTest from "./screens/conversation_test/ConversationTest";
-import { NativeRouter, Routes, Route, Outlet } from "react-router-native";
+import { NativeRouter, Route, Routes } from "react-router-native";
 import NewConversation from "./screens/main/new_conversation/NewConversation";
 import PreviousConversations from "./screens/main/previous_conversations/PreviousConversation";
 import BottomNavbar from "./screens/main/bottom_navbar/BottomNavbar";
@@ -12,18 +12,18 @@ export default function App() {
     <>
       <NativeRouter>
         <Routes>
-          <Route path="/" element={<BottomNavbar />}>
+          <Route path="/" element={<BottomNavbar/>}>
             {/* <Route index element={<NewConversation />} /> */}
-            <Route index element={<NewConversation />} />
+            <Route index element={<NewConversation/>}/>
             <Route
               path="/previous_conversations"
-              element={<PreviousConversations />}
+              element={<PreviousConversations/>}
             />
-            <Route path="/subject_selection" element={<SubjectSelection />} />
-            <Route path="/user_page" element={<UserPage />} />
+            <Route path="/subject_selection" element={<SubjectSelection/>}/>
+            <Route path="/user_page" element={<UserPage/>}/>
           </Route>
 
-          <Route path="conversation" element={<ConversationTest />} />
+          <Route path="conversation" element={<ConversationTest/>}/>
         </Routes>
       </NativeRouter>
     </>

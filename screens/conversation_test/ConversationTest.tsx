@@ -1,13 +1,10 @@
-import { View, SafeAreaView, Text, StyleSheet, Button } from "react-native";
-import React, { useRef, useState, useEffect } from "react";
-import usePlay64EncodedAudio from "../../hooks/usePlay64EncodedAudio";
-import { getResponseAndBase64AudioFromPrompt } from "../../response_generating/responseGenerating";
-import useVoiceRecognition from "../../hooks/useVoiceRecognition";
+import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React from "react";
 import useConversation from "../../hooks/useConversation";
-import { createConversationResponseTemplate } from "../../response_generating/response_utilities";
 import { useLocation } from "react-router-native";
 import EXAMPLE_TEACHER_LIST from "../../utils/TeacherUtils";
 import EXAMPLE_SUBJECT_DICT from "../../utils/SubjectUtils";
+
 type Props = {};
 
 const ConversationTest = (props: Props) => {
@@ -27,14 +24,15 @@ const ConversationTest = (props: Props) => {
     subject,
   });
 
-  const handleCancelButton = () => {};
+  const handleCancelButton = () => {
+  };
   const handleStartListeningButton = () => {
     registerUserSpeech();
   };
 
   const renderVoiceControlButton = () => {
     if (isProcessing) {
-      return <Button title="Cancel" onPress={handleCancelButton} />;
+      return <Button title="Cancel" onPress={handleCancelButton}/>;
     } else {
       return (
         <View>
@@ -44,9 +42,9 @@ const ConversationTest = (props: Props) => {
             title="Start listening..."
             onPress={handleStartListeningButton}
           />
-          <Button title="play current audio" onPress={playCurrentAudio} />
+          <Button title="play current audio" onPress={playCurrentAudio}/>
 
-          <Button title="send response" onPress={getTeacherResponse} />
+          <Button title="send response" onPress={getTeacherResponse}/>
         </View>
       );
     }

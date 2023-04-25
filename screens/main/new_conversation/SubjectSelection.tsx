@@ -1,15 +1,8 @@
-import { View, Text, ScrollView } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
-import {
-  useLocation,
-  useNavigate,
-  NavigateFunction,
-} from "react-router-native";
+import { ScrollView, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, } from "react-router-native";
 import TeacherSelector from "./Selector";
-import {
-  getSubjectListByLanguageAndTeacherName,
-  SUBJECT,
-} from "../../../utils/SubjectUtils";
+import { getSubjectListByLanguageAndTeacherName, SUBJECT, } from "../../../utils/SubjectUtils";
 
 type Props = {};
 
@@ -18,7 +11,7 @@ const SubjectSelection = (props: Props) => {
   const [subjectList, setSubjectList] = useState<SUBJECT[]>([]);
   const navigate = useNavigate();
 
-  const { teacher, language } = useLocation().state;
+  const {teacher, language} = useLocation().state;
 
   useEffect(() => {
     getSubjectListByLanguageAndTeacherName(language, teacher.name).then(
@@ -48,8 +41,9 @@ const SubjectSelection = (props: Props) => {
       );
     });
   }
-  if(!subjectList){
-    return(
+
+  if (!subjectList) {
+    return (
       <View>
         <Text> Loading subjects...</Text>
       </View>

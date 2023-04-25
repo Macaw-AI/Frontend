@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import useVoiceRecognition from "./useVoiceRecognition";
 import { getResponseAndBase64AudioFromPrompt } from "../response_generating/responseGenerating";
 import {
@@ -18,6 +17,7 @@ const useConversation = (props: {
   teacher: TEACHER;
   subject: SUBJECT;
 }): {
+
   isProcessing: boolean;
   registerUserSpeech: () => void;
   playCurrentAudio: () => void;

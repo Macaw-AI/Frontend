@@ -1,14 +1,6 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TouchableHighlight,
-  ScrollView,
-} from "react-native";
-import { Outlet, useNavigate } from "react-router-native";
-import SelectDropdown from "react-native-select-dropdown";
-import React, { useContext, useEffect, useState } from "react";
+import { ScrollView, StyleSheet, Text, View, } from "react-native";
+import { useNavigate } from "react-router-native";
+import React, { useEffect, useState } from "react";
 import { getTeacherListByLanguage, TEACHER } from "../../../utils/TeacherUtils";
 import TeacherSelector from "./Selector";
 import { LANGUAGE } from "../../../utils/Language";
@@ -16,39 +8,43 @@ import { LANGUAGE } from "../../../utils/Language";
 type Props = {};
 const NewConversation = (props: Props) => {
   const language = LANGUAGE.ENGLISH
-  useEffect( () => {
-    getTeacherListByLanguage(language).then((teacherList) =>{
+  useEffect(() => {
+    getTeacherListByLanguage(language).then((teacherList) => {
       setTeacherList(teacherList)
     })
   }, [])
 
   const navigate = useNavigate()
-  const [teacherList,setTeacherList] = useState<TEACHER[]>([])
-  function renderTeacherSelectors(){
+  const [teacherList, setTeacherList] = useState<TEACHER[]>([])
+
+  function renderTeacherSelectors() {
     return teacherList.map((teacher: TEACHER) => {
       return <TeacherSelector
         title={teacher.name}
         description={teacher.character}
-        onPress = {() => {
-          navigate("subject_selection",{state: {
-            teacher: teacher,
-            language: language
-          }})
+        onPress={() => {
+          navigate("subject_selection", {
+            state: {
+              teacher: teacher,
+              language: language
+            }
+          })
         }}
       />
     })
   }
-  if(!teacherList){
-    return(<View>
+
+  if (!teacherList) {
+    return (<View>
       <Text>Loading teachers...</Text>
     </View>)
   }
 
-   return (
+  return (
     <ScrollView>
       {renderTeacherSelectors()}
     </ScrollView>
-  ); 
+  );
 };
 
 export default NewConversation;

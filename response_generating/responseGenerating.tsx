@@ -19,7 +19,7 @@ export async function getResponseAndBase64AudioFromPrompt(
       "Content-Type": "application/json",
     },
   });
-  console.log(JSON.stringify(res,null,2))
+  console.log(JSON.stringify(res, null, 2))
   const responseObject: BODY_TYPE = JSON.parse(await res.text());
   if (res.status == 200) {
     return Promise.resolve([responseObject.response, responseObject.audio]);

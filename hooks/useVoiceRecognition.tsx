@@ -1,9 +1,9 @@
 import Voice, {
-  SpeechRecognizedEvent,
-  SpeechStartEvent,
   SpeechEndEvent,
   SpeechErrorEvent,
+  SpeechRecognizedEvent,
   SpeechResultsEvent,
+  SpeechStartEvent,
   SpeechVolumeChangeEvent,
 } from "@react-native-voice/voice";
 import React, { useState } from "react";
@@ -20,6 +20,7 @@ type State = {
   volume: number;
   isListening: boolean;
 };
+
 function useVoiceRecognition(
   locale: string
 ): [
@@ -52,7 +53,7 @@ function useVoiceRecognition(
     Voice.onSpeechError = () => {
       onFailure();
       setState((prevState) => {
-        return { ...prevState, started: false, isListening: false };
+        return {...prevState, started: false, isListening: false};
       });
     };
     await startRecognizing();

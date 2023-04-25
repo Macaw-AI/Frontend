@@ -25,7 +25,6 @@ export type CONVERSATION_RESPONSE = {
 };
 
 
-
 //conversationRecord ends with user response
 export function addTextToResponseBody(
   conversationRecord: string,
@@ -44,13 +43,13 @@ export function createConversationResponseTemplate(
 ): CONVERSATION_RESPONSE {
   const template: CONVERSATION_RESPONSE = {
     student: {
-        name: name,
-        age: age,
-        model: "text-davinci-003" //todo add as parameter
+      name: name,
+      age: age,
+      model: "text-davinci-003" //todo add as parameter
     },
     subject,
     teacher,
     text: ""
-};
+  };
   return template;
 }

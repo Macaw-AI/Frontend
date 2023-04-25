@@ -14,8 +14,8 @@ export async function getSubjectListByLanguageAndTeacherName(
   teacherName: string
 ): Promise<SUBJECT[]> {
   const body = {
-      language: language.toString(),
-      teacher: teacherName
+    language: language.toString(),
+    teacher: teacherName
   };
   try {
     const res = await fetch(subjectListAPI, {
@@ -32,7 +32,7 @@ export async function getSubjectListByLanguageAndTeacherName(
     console.log("TEXT: " + text)
     const listOfSubjects: SUBJECT[] = JSON.parse(text)[
       "listOfSubjects"
-    ];
+      ];
     if (listOfSubjects == undefined) {
       return Promise.reject();
     }
@@ -44,30 +44,30 @@ export async function getSubjectListByLanguageAndTeacherName(
 
 
 const EXAMPLE_SUBJECT_DICT = {
-  "MrWernor": 
+  "MrWernor":
     [
-        {
-            "name": "History: antiquity",
-            "related": [
-                "technologies of the past",
-                "changes in human history",
-                "good old days",
-                "Rome",
-                "Egypt",
-                "Greece",
-                "Sparta",
-                "Mezopotamia"
-            ],
-            "questions": "Debate about ancient civilizations, their development and culture"
-        },
-        {
-            "name": "hobbies",
-            "related": [
-                "relations",
-                "self-development"
-            ],
-            "questions": "Having a hobbies, how to find them, why it is worth to have hobbies"
-        }
+      {
+        "name": "History: antiquity",
+        "related": [
+          "technologies of the past",
+          "changes in human history",
+          "good old days",
+          "Rome",
+          "Egypt",
+          "Greece",
+          "Sparta",
+          "Mezopotamia"
+        ],
+        "questions": "Debate about ancient civilizations, their development and culture"
+      },
+      {
+        "name": "hobbies",
+        "related": [
+          "relations",
+          "self-development"
+        ],
+        "questions": "Having a hobbies, how to find them, why it is worth to have hobbies"
+      }
     ],
 }
 

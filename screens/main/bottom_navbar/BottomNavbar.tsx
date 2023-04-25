@@ -1,17 +1,6 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  SafeAreaView,
-  Image,
-  Dimensions,
-  TouchableHighlight,
-  ImageSourcePropType,
-} from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, Text, TouchableHighlight, View, } from "react-native";
 import React, { useState } from "react";
-import { Outlet, Link, useNavigate } from "react-router-native";
-import babelConfig from "../../../babel.config";
+import { Outlet, useNavigate } from "react-router-native";
 
 const chat = require("./../../../assets/icons/chat.png");
 const conversation = require("./../../../assets/icons/conversation.png");
@@ -22,7 +11,7 @@ const BottomNavbar = (props: Props) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   return (
     <>
-      <View style={{ backgroundColor: "#2EBFDF", borderBottomColor: "black", borderBottomWidth: 1 }}>
+      <View style={{backgroundColor: "#2EBFDF", borderBottomColor: "black", borderBottomWidth: 1}}>
         <Text
           style={{
             fontSize: 30,
@@ -35,24 +24,28 @@ const BottomNavbar = (props: Props) => {
         </Text>
       </View>
       <View style={styles.content}>
-        <Outlet />
+        <Outlet/>
       </View>
       <View style={styles.bottomNavbar}>
-        <NavbarButton index={0} onPress={() =>navigate("/")} img={chat}/>
-        <NavbarButton index={1} onPress={() =>navigate("/previous_conversations")} img={conversation}/>
-        <NavbarButton index={2} onPress={() =>navigate("/user_page")} img={user}/>
+        <NavbarButton index={0} onPress={() => navigate("/")} img={chat}/>
+        <NavbarButton index={1} onPress={() => navigate("/previous_conversations")} img={conversation}/>
+        <NavbarButton index={2} onPress={() => navigate("/user_page")} img={user}/>
       </View>
     </>
   );
 
-  function NavbarButton(props: { index:number ,onPress: () => void; img: ImageSourcePropType}) {
+  function NavbarButton(props: { index: number, onPress: () => void; img: ImageSourcePropType }) {
     return (
       <TouchableHighlight
         underlayColor="#E8e8e8"
-        style={props.index == selectedIndex? styles.navBarButtonSelected: styles.navBarButton}
-        onPress={props.index == selectedIndex? () => {}: ()=>{props.onPress();setSelectedIndex(props.index)}}
+        style={props.index == selectedIndex ? styles.navBarButtonSelected : styles.navBarButton}
+        onPress={props.index == selectedIndex ? () => {
+        } : () => {
+          props.onPress();
+          setSelectedIndex(props.index)
+        }}
       >
-        <Image source={props.img} style={styles.icon} />
+        <Image source={props.img} style={styles.icon}/>
       </TouchableHighlight>
     );
   }
@@ -91,14 +84,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   navBarButton: {
-      paddingHorizontal: 10,
-      borderRadius: 15,
+    paddingHorizontal: 10,
+    borderRadius: 15,
   },
   navBarButtonSelected: {
     borderBottomColor: "black",
-      borderBottomWidth: 2,
-      paddingHorizontal: 10,
-      borderRadius: 15,
+    borderBottomWidth: 2,
+    paddingHorizontal: 10,
+    borderRadius: 15,
   }
 
 });
