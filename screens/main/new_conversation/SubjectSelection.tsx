@@ -25,6 +25,7 @@ const SubjectSelection = (props: Props) => {
     return subjectList.map((subject: SUBJECT) => {
       return (
         <TeacherSelector
+          key={subject.name}
           title={subject.name}
           description={subject.related.join("\n")}
           onPress={() => {

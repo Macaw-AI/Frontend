@@ -21,6 +21,7 @@ const NewConversation = (props: Props) => {
     return teacherList.map((teacher: TEACHER) => {
       return <TeacherSelector
         title={teacher.name}
+        key={teacher.name}
         description={teacher.character}
         onPress={() => {
           navigate("subject_selection", {
